@@ -18,4 +18,22 @@ public class PostSteps {
                 .then()
                 .log().ifError();
     }
+
+    public static ValidatableResponse readPost(int postId){
+        return given()
+                .spec(requestSpecification())
+                .when()
+                .get(POSTS + postId)
+                .then()
+                .log().ifError();
+    }
+
+    public static ValidatableResponse readPosts(){
+        return given()
+                .spec(requestSpecification())
+                .when()
+                .get(POSTS)
+                .then()
+                .log().ifError();
+    }
 }
