@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-26T10:57:58" hostname="KH-WRS029" time="2.696">
+  <properties/>
+  <testcase name="postsWordFrequency()" classname="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" time="2.696"/>
+  <system-out><![CDATA[2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - et: 85
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - aut: 54
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - qui: 47
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - ut: 44
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - est: 32
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - quia: 27
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - rerum: 25
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - molestiae: 25
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - sed: 23
+2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - non: 23
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

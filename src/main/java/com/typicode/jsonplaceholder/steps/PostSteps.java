@@ -19,20 +19,37 @@ public class PostSteps {
                 .log().ifError();
     }
 
-    public static ValidatableResponse readPost(int postId){
+    public static ValidatableResponse readPost(int postId) {
         return given()
                 .spec(requestSpecification())
                 .when()
                 .get(POSTS + postId)
-                .then()
-                .log().ifError();
+                .then();
     }
 
-    public static ValidatableResponse readPosts(){
+    public static ValidatableResponse readPosts() {
         return given()
                 .spec(requestSpecification())
                 .when()
                 .get(POSTS)
+                .then()
+                .log().ifError();
+    }
+
+    public static ValidatableResponse updatePost(int postId) {
+        return given()
+                .spec(requestSpecification())
+                .when()
+                .put(POSTS + postId)
+                .then()
+                .log().ifError();
+    }
+
+    public static ValidatableResponse deletePost(int postId) {
+        return given()
+                .spec(requestSpecification())
+                .when()
+                .delete(POSTS + postId)
                 .then()
                 .log().ifError();
     }

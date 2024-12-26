@@ -8,12 +8,17 @@ import com.typicode.jsonplaceholder.steps.PostSteps;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
+import static com.typicode.jsonplaceholder.helpers.HttpStatus.NOT_FOUND;
 import static org.hamcrest.core.IsEqual.equalTo;
 
+@DisplayName("Тестирование постов")
 public class PostsTests extends PostBaseTest {
     private static final Logger logger = LogManager.getLogger(PostsTests.class);
 
@@ -75,10 +80,20 @@ public class PostsTests extends PostBaseTest {
         Assertions.assertThat(posts.size()).isEqualTo(100);
     }
 
-    @Test
-    public void getPostById() {
-        postResponse = PostSteps.readPost(1);
-        postResponse.assertThat().body("id", equalTo(1));
+    @ParameterizedTest
+    @ValueSource(ints = {1, 50, 100})
+    public void getPostById(int postId) {
+        postResponse = PostSteps.readPost(postId);
+        postResponse.assertThat().body("id", equalTo(postId));
+        logger.info("test with postId:" + postId);
+    }
 
+    @ParameterizedTest
+    @ValueSource(ints = {101, 102})
+    public void getPostWithoutId(int postId) {
+        postResponse = PostSteps.readPost(postId);
+        postResponse
+                .statusCode(NOT_FOUND);
+        logger.info("test with postId:" + postId);
     }
 }

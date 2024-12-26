@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.typicode.jsonplaceholder.api.tests.posts.PostsTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-25T09:09:03" hostname="KH-WRS029" time="1.752">
-  <properties/>
-  <testcase name="readALlPosts()" classname="com.typicode.jsonplaceholder.api.tests.posts.PostsTests" time="1.752"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

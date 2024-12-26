@@ -8,7 +8,9 @@ import io.restassured.specification.RequestSpecification;
 import static com.typicode.jsonplaceholder.config.Config.config;
 
 public class Specifications {
-    private static final AllureRestAssured FILTER = new AllureRestAssured();
+    private static final AllureRestAssured FILTER = new AllureRestAssured()
+            .setRequestTemplate("request.ftl")
+            .setResponseTemplate("response.ftl");
 
     public static RequestSpecification requestSpecification() {
         return new RequestSpecBuilder()
