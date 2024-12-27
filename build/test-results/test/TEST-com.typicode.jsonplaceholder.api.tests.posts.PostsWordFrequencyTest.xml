@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-26T10:57:58" hostname="KH-WRS029" time="2.696">
+<testsuite name="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-12-27T09:52:08" hostname="KH-WRS029" time="2.566">
   <properties/>
-  <testcase name="postsWordFrequency()" classname="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" time="2.696"/>
-  <system-out><![CDATA[2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - et: 85
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - aut: 54
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - qui: 47
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - ut: 44
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - est: 32
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - quia: 27
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - rerum: 25
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - molestiae: 25
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - sed: 23
-2024-12-26 17:58:01 [Test worker] INFO  com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest - non: 23
-]]></system-out>
+  <testcase name="Проверка часто встречающихся слов в постах" classname="com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest" time="2.566">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;com.typicode.jsonplaceholder.services.posts.PostsService.extractListOfPosts(io.restassured.response.ValidatableResponse)&quot; because &quot;this.postsService&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;com.typicode.jsonplaceholder.services.posts.PostsService.extractListOfPosts(io.restassured.response.ValidatableResponse)&quot; because &quot;this.postsService&quot; is null
+	at com.typicode.jsonplaceholder.api.tests.posts.PostsWordFrequencyTest.postsWordFrequency(PostsWordFrequencyTest.java:20)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
