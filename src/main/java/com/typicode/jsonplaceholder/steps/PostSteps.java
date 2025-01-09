@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class PostSteps {
 
-    public static ValidatableResponse createPost(CreatePostDto post) {
+    public ValidatableResponse createPost(CreatePostDto post) {
         return given()
                 .spec(requestSpecification())
                 .body(post)
@@ -19,7 +19,7 @@ public class PostSteps {
                 .log().ifError();
     }
 
-    public static ValidatableResponse readPost(int postId) {
+    public ValidatableResponse readPost(int postId) {
         return given()
                 .spec(requestSpecification())
                 .when()
@@ -27,7 +27,7 @@ public class PostSteps {
                 .then();
     }
 
-    public static ValidatableResponse readPosts() {
+    public ValidatableResponse readAllPosts() {
         return given()
                 .spec(requestSpecification())
                 .when()
@@ -36,16 +36,17 @@ public class PostSteps {
                 .log().ifError();
     }
 
-    public static ValidatableResponse updatePost(int postId) {
+    public ValidatableResponse updatePost(int postId, CreatePostDto body) {
         return given()
                 .spec(requestSpecification())
+                .body(body)
                 .when()
                 .put(POSTS + postId)
                 .then()
                 .log().ifError();
     }
 
-    public static ValidatableResponse deletePost(int postId) {
+    public ValidatableResponse deletePost(int postId) {
         return given()
                 .spec(requestSpecification())
                 .when()
