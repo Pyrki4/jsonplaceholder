@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class PostWordFrequencyHelper {
 
-
     public static List<Map.Entry<String, Integer>> getListOfPostWordsFrequency(List<PostDto> posts) {
         Map<String, Integer> wordFrequency = new HashMap<>();
 
@@ -26,4 +25,17 @@ public class PostWordFrequencyHelper {
                 .limit(10)
                 .toList();
     }
+
+//    public void logPostFrequencyWords(ValidatableResponse response){
+//        List<PostDto> posts = PostsService.extractListOfPosts(response);
+//
+//        List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(posts);
+//
+//        int i = 1;
+//
+//        for (Map.Entry<String, Integer> entry : sortedWords) {
+//            logger.info(i + " ." + entry.getKey() + ": " + entry.getValue());
+//            i++;
+//        }
+//    }
 }
