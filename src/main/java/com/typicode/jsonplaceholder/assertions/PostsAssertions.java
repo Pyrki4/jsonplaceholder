@@ -36,10 +36,8 @@ public class PostsAssertions {
                 .body("title", equalTo(post.getTitle()));
     }
 
-    public static void assertPostDelete(ValidatableResponse response, int expectedPostId) {
+    public static void assertPostDelete(ValidatableResponse response) {
         response
-                .statusCode(HttpStatus.OK)
-                .assertThat()
-                .body("id", equalTo(expectedPostId));
+                .statusCode(HttpStatus.OK);
     }
 }

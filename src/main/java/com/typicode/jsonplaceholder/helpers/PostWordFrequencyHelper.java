@@ -1,12 +1,18 @@
 package com.typicode.jsonplaceholder.helpers;
 
 import com.typicode.jsonplaceholder.api.dto.PostDto;
+import com.typicode.jsonplaceholder.services.posts.PostsService;
+import io.restassured.response.ValidatableResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class PostWordFrequencyHelper {
+
+    protected final static Logger logger = LogManager.getLogger(PostWordFrequencyHelper.class);
 
     public static List<Map.Entry<String, Integer>> getListOfPostWordsFrequency(List<PostDto> posts) {
         Map<String, Integer> wordFrequency = new HashMap<>();
@@ -26,16 +32,13 @@ public class PostWordFrequencyHelper {
                 .toList();
     }
 
-//    public void logPostFrequencyWords(ValidatableResponse response){
-//        List<PostDto> posts = PostsService.extractListOfPosts(response);
-//
-//        List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(posts);
-//
-//        int i = 1;
-//
-//        for (Map.Entry<String, Integer> entry : sortedWords) {
-//            logger.info(i + " ." + entry.getKey() + ": " + entry.getValue());
-//            i++;
-//        }
-//    }
+    public static void logPosts(ValidatableResponse response) {
+        PostsService postsService = new PostsService();
+
+        List<PostDto> posts = postsService.extractListOfPosts(response);
+
+        List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(posts);
+
+        PostsLogger.logList(sortedWords, logger);
+    }
 }
