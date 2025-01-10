@@ -5,14 +5,13 @@ import com.typicode.jsonplaceholder.helpers.PostWordFrequencyHelper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@DisplayName("Часто встречающиеся слова в постах")
+@DisplayName("Тестирование частоты слов в постах")
 public class PostsWordFrequencyTest extends BaseTest {
 
-    @DisplayName("Проверка часто встречающихся слов в постах")
+    @DisplayName("Часто встречающиеся слова в постах")
     @Test
     public void postsWordFrequency() {
-        var response = posts.readAllPosts();
-
+        var response = client.readAllPosts();
         PostWordFrequencyHelper.logPosts(response);
     }
 }

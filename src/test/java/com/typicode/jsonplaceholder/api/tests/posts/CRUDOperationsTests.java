@@ -1,8 +1,8 @@
 package com.typicode.jsonplaceholder.api.tests.posts;
 
-import com.typicode.jsonplaceholder.api.dto.CreatePostDto;
+import com.typicode.jsonplaceholder.api.dto.PostRequestDto;
 import com.typicode.jsonplaceholder.api.generators.PostGenerator;
-import com.typicode.jsonplaceholder.assertions.PostsAssertions;
+import com.typicode.jsonplaceholder.api.assertions.PostsAssertions;
 import com.typicode.jsonplaceholder.base.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,28 +10,32 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Тестирование CRUD операций постов")
 public class CRUDOperationsTests extends BaseTest {
 
+    @DisplayName("Создание поста")
     @Test
     public void createPostTest() {
-        var response = posts.createPost(PostGenerator.getNewPost());
+        var response = client.createPost(PostGenerator.getNewPost());
         PostsAssertions.assertPostCreate(response);
     }
 
+    @DisplayName("Получение поста")
     @Test
     public void readPostTest() {
-        var response = posts.readPost(1);
+        var response = client.readPost(1);
         PostsAssertions.assertPostRead(response, 1, 1);
     }
 
+    @DisplayName("Обновление поста")
     @Test
     public void updatePostTest() {
-        CreatePostDto updatePost = PostGenerator.getNewPost();
-        var response = posts.updatePost(1, updatePost);
+        PostRequestDto updatePost = PostGenerator.getNewPost();
+        var response = client.updatePost(1, updatePost);
         PostsAssertions.assertPostUpdate(response, updatePost);
     }
 
+    @DisplayName("Удаление поста")
     @Test
     public void deletePostTest() {
-        var response = posts.deletePost(1);
+        var response = client.deletePost(1);
         PostsAssertions.assertPostDelete(response);
     }
 }
