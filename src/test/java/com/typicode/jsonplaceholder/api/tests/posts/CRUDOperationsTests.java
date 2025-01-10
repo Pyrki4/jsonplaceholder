@@ -4,6 +4,7 @@ import com.typicode.jsonplaceholder.api.dto.PostRequestDto;
 import com.typicode.jsonplaceholder.api.generators.PostGenerator;
 import com.typicode.jsonplaceholder.api.assertions.PostsAssertions;
 import com.typicode.jsonplaceholder.base.BaseTest;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ public class CRUDOperationsTests extends BaseTest {
     @DisplayName("Создание поста")
     @Test
     public void createPostTest() {
-        var response = client.createPost(PostGenerator.getNewPost());
+        var response = client.createPost(PostGenerator.getNewPost(), HttpStatus.SC_CREATED);
         PostsAssertions.assertPostCreate(response);
     }
 
