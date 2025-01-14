@@ -1,6 +1,7 @@
 package com.typicode.jsonplaceholder.helpers;
 
 import com.typicode.jsonplaceholder.api.dto.PostResponseDto;
+import io.qameta.allure.Step;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 public class PostWordFrequencyHelper {
 
+    @Step("Получение списка сортированных слов в постах")
     public static List<Map.Entry<String, Integer>> getListOfPostWordsFrequency(List<PostResponseDto> posts) {
         Map<String, Integer> wordFrequency = new HashMap<>();
 
@@ -26,6 +28,7 @@ public class PostWordFrequencyHelper {
                 .toList();
     }
 
+    @Step("Логирование частов встечающихся слов в постах")
     public static void logPostsWordFrequency(List<PostResponseDto> list) {
         List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(list);
 
