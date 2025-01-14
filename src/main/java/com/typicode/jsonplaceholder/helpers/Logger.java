@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class PostsLogger {
+public class Logger {
 
-    public static void logList(List<Map.Entry<String, Integer>> sortedWords) {
+    public static void logList(List<Map.Entry<String, Integer>> list) {
         int i = 1;
 
-        for (Map.Entry<String, Integer> entry : sortedWords) {
+        for (Map.Entry<String, Integer> entry : list) {
             log.info(i + " ." + entry.getKey() + ": " + entry.getValue());
             i++;
         }

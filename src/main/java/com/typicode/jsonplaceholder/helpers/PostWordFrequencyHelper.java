@@ -1,8 +1,6 @@
 package com.typicode.jsonplaceholder.helpers;
 
 import com.typicode.jsonplaceholder.api.dto.PostResponseDto;
-import com.typicode.jsonplaceholder.services.posts.PostsService;
-import io.restassured.response.ValidatableResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,13 +26,9 @@ public class PostWordFrequencyHelper {
                 .toList();
     }
 
-    public static void logPosts(ValidatableResponse response) {
-        PostsService postsService = new PostsService();
+    public static void logPostsWordFrequency(List<PostResponseDto> list) {
+        List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(list);
 
-        List<PostResponseDto> posts = postsService.extractListOfPosts(response);
-
-        List<Map.Entry<String, Integer>> sortedWords = PostWordFrequencyHelper.getListOfPostWordsFrequency(posts);
-
-        PostsLogger.logList(sortedWords);
+        Logger.logList(sortedWords);
     }
 }

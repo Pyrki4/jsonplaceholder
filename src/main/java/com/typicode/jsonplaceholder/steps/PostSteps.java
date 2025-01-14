@@ -2,60 +2,41 @@ package com.typicode.jsonplaceholder.steps;
 
 import com.typicode.jsonplaceholder.api.dto.PostRequestDto;
 import com.typicode.jsonplaceholder.api.dto.PostResponseDto;
-import com.typicode.jsonplaceholder.config.EndPoints;
-import com.typicode.jsonplaceholder.services.posts.PostsService;
-import io.qameta.allure.Step;
-import io.restassured.response.ValidatableResponse;
+import com.typicode.jsonplaceholder.services.posts.PostService;
 
-import static com.typicode.jsonplaceholder.specifications.Specifications.requestSpecification;
-import static io.restassured.RestAssured.given;
+import java.util.List;
 
 public class PostSteps {
 
     PostService postService = new PostService();
 
+//    @Step("Получение всех постов")
+    public List<PostResponseDto> getAllPosts(int statusCode) {
+        return postService.get(statusCode).body().jsonPath().getList("",PostResponseDto.class);
+    }
+
+//    @Step("Получение поста по {postId}")
+    public PostResponseDto getPostById(int postId, int statusCode) {
+        return postService.get(postId, statusCode).as(PostResponseDto.class);
+    }
+
+//    @Step("Создание поста")
     public PostResponseDto createPost(PostRequestDto body, int statusCode) {
         return postService.post(body, statusCode).as(PostResponseDto.class);
     }
 
-
-//    @Step("Отправка запроса на получение поста")
-    public ValidatableResponse readPost(int postId) {
-        return given()
-                .spec(requestSpecification())
-                .when()
-                .get(EndPoints.POSTS + postId)
-                .then();
+//    @Step("Обновление поста методом put")
+    public PostResponseDto putUpdatePost(int postId, PostRequestDto body, int statusCode) {
+        return postService.put(postId, body, statusCode).as(PostResponseDto.class);
     }
 
-//    @Step("Отправка запроса на получение всех постов")
-    public ValidatableResponse readAllPosts() {
-        return given()
-                .spec(requestSpecification())
-                .when()
-                .get(EndPoints.POSTS)
-                .then()
-                .log().ifError();
+//    @Step("Обновление поста методом patch")
+    public PostResponseDto patchUpdatePost(int postId, PostRequestDto body, int statusCode) {
+        return postService.patch(postId, body, statusCode).as(PostResponseDto.class);
     }
 
-//    @Step("Отправка запроса на обновление поста")
-    public ValidatableResponse updatePost(int postId, PostRequestDto body) {
-        return given()
-                .spec(requestSpecification())
-                .body(body)
-                .when()
-                .put(EndPoints.POSTS + postId)
-                .then()
-                .log().ifError();
-    }
-
-//    @Step("Отправка запроса на удаление поста")
-    public ValidatableResponse deletePost(int postId) {
-        return given()
-                .spec(requestSpecification())
-                .when()
-                .delete(EndPoints.POSTS + postId)
-                .then()
-                .log().ifError();
+//    @Step("Удаление поста")
+    public PostResponseDto deletePost(int postId,int statusCode) {
+        return postService.delete(postId, statusCode).as(PostResponseDto.class);
     }
 }
